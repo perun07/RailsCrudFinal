@@ -22,9 +22,9 @@
         <td><%= blog_post.date %></td>
         <td><%= blog_post.content %></td>
         <%= image_tag blog_post.picture_url, width: '50%' if blog_post.picture.present? %>
-        <td><%= link_to 'Show', blog_post %></td>
+        <td><%= link_to 'Running Post', blog_post %></td>
         <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
-        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Yo, Wait, Hold IT' } %></td>
+        <td><%= link_to 'Delete', blog_post, method: :delete, data: { confirm: 'Yo, Wait, Hold IT' } %></td>
       </tr>
     <% end %>
   </tbody>
