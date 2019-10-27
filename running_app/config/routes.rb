@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'pages/about'
   resources :blog_posts
   root to: redirect('/blog_posts')
