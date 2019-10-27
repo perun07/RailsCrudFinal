@@ -72,3 +72,4 @@ class SearchActivesController < ApplicationController
       params.require(:search_active).permit(:raceType, :location, :description)
     end
 end
+
