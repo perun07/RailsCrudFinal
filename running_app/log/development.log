@@ -6751,3 +6751,368 @@ Processing by BlogPostsController#index as HTML
 Completed 200 OK in 64ms (Views: 45.2ms | ActiveRecord: 17.1ms | Allocations: 8817)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserRefToBlogPosts (20191030004013)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.0ms)[0m  [1m[35mALTER TABLE "blog_posts" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:42:13 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.0) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.0) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:43:15 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 43.5ms | Allocations: 6889)
+Completed 200 OK in 2303ms (Views: 2276.0ms | ActiveRecord: 7.6ms | Allocations: 1366611)
+
+
+Started DELETE "/blog_posts/2" for ::1 at 2019-10-29 20:43:21 -0400
+Processing by BlogPostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"no/GHoPwXa+A4GZHsKQoTUTOU2aVqe0wo+MTQ96LkOvFL4+qU8L8y9oXsBKZIrH69RZy0upQ8p97PdYZHciShg==", "id"=>"2"}
+  [1m[36mBlogPost Load (0.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:70:in `set_blog_post'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+  [1m[36mBlogPost Destroy (0.6ms)[0m  [1m[31mDELETE FROM "blog_posts" WHERE "blog_posts"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+  [1m[35m (40.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/blog_posts
+Completed 302 Found in 63ms (ActiveRecord: 42.4ms | Allocations: 3373)
+
+
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:43:21 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (1.3ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 896)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 1.3ms | Allocations: 8689)
+
+
+Started DELETE "/blog_posts/1" for ::1 at 2019-10-29 20:43:26 -0400
+Processing by BlogPostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Jh+3GZawF63SWDL/nFp3Q2WjMbcivs17afDy+iU7Kvt9v/6tRoK2yYiv5Kq13O701HsQA11H0tSxLjeg5ngolg==", "id"=>"1"}
+  [1m[36mBlogPost Load (0.4ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:70:in `set_blog_post'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+  [1m[36mBlogPost Destroy (3.8ms)[0m  [1m[31mDELETE FROM "blog_posts" WHERE "blog_posts"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/blog_posts_controller.rb:59:in `destroy'
+Redirected to http://localhost:3000/blog_posts
+Completed 302 Found in 20ms (ActiveRecord: 5.3ms | Allocations: 2843)
+
+
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:43:26 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (3.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 656)
+Completed 200 OK in 51ms (Views: 44.4ms | ActiveRecord: 3.8ms | Allocations: 8446)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddUserRefToBlogPosts (20191030004436)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "blog_posts" ADD "user_id" bigint NOT NULL[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE  INDEX  "index_blog_posts_on_user_id" ON "blog_posts"  ("user_id")[0m
+  [1m[35m (15.8ms)[0m  [1m[35mALTER TABLE "blog_posts" ADD CONSTRAINT "fk_rails_829fc99162"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191030004436"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:49:57 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 1684)
+Completed 200 OK in 2042ms (Views: 2010.8ms | ActiveRecord: 3.2ms | Allocations: 1361987)
+
+
+Started GET "/blog_posts/new" for ::1 at 2019-10-29 20:50:02 -0400
+Processing by BlogPostsController#new as HTML
+  Rendering blog_posts/new.html.erb within layouts/application
+  Rendered blog_posts/_form.html.erb (Duration: 17.6ms | Allocations: 4085)
+  Rendered blog_posts/new.html.erb within layouts/application (Duration: 19.8ms | Allocations: 4445)
+Completed 200 OK in 59ms (Views: 36.1ms | ActiveRecord: 8.1ms | Allocations: 17704)
+
+
+Started GET "/users/sign_up" for ::1 at 2019-10-29 20:50:14 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 210)
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 1.7ms | Allocations: 545)
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 3041)
+Completed 200 OK in 39ms (Views: 25.3ms | ActiveRecord: 3.1ms | Allocations: 17151)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-10-29 20:50:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 212)
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1708)
+Completed 200 OK in 50ms (Views: 45.7ms | ActiveRecord: 0.0ms | Allocations: 10710)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-10-29 20:50:27 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"rzj2UoYNeWGMVbIx59pKtdgfFoZlP6fQLr9LhNiyq2QI+FVrExKkJoYqX6lZJ4ZxcKPEg8an+OYsLTcNR8s2KQ==", "user"=>{"email"=>"perun07@reagan.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "perun07@reagan.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 20ms (ActiveRecord: 2.7ms | Allocations: 2492)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"rzj2UoYNeWGMVbIx59pKtdgfFoZlP6fQLr9LhNiyq2QI+FVrExKkJoYqX6lZJ4ZxcKPEg8an+OYsLTcNR8s2KQ==", "user"=>{"email"=>"perun07@reagan.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 132)
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1036)
+Completed 200 OK in 195ms (Views: 28.1ms | ActiveRecord: 0.0ms | Allocations: 8981)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-10-29 20:50:33 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"w8Wu1WKQ8UOOGrOOTdQp43bvWR7yIBBznNyQ4MdfrRqYZedhsqJQJ9TtZdtkUrBUxzd4qo3ZD9xEAlW6BByvdw==", "user"=>{"email"=>"perun@reagan.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "perun@reagan.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 165ms (ActiveRecord: 3.1ms | Allocations: 4259)
+
+
+Started GET "/" for ::1 at 2019-10-29 20:50:33 -0400
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:50:33 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 661)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 1.1ms | Allocations: 9284)
+
+
+Started GET "/blog_posts/new" for ::1 at 2019-10-29 20:50:36 -0400
+Processing by BlogPostsController#new as HTML
+  Rendering blog_posts/new.html.erb within layouts/application
+  Rendered blog_posts/_form.html.erb (Duration: 8.1ms | Allocations: 1119)
+  Rendered blog_posts/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 1204)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 51ms (Views: 48.4ms | ActiveRecord: 0.8ms | Allocations: 9822)
+
+
+Started POST "/blog_posts" for ::1 at 2019-10-29 20:50:54 -0400
+Processing by BlogPostsController#create as HTML
+  Parameters: {"authenticity_token"=>"f4knjejOBSwixI9fJq7kMODQ4c+CDpuG7kKlOj7P19BFrUHVhoHOxoH2FSXtOeAaaMCfB57jbJLfA1rk+zmBGA==", "blog_post"=>{"title"=>"5k Running Plan", "date"=>"10/28/2019", "content"=>"I like 5ks", "picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fc34a34a1b0 @tempfile=#<Tempfile:/var/folders/2z/6wjqgvks5zjcgpgsw7ws2xhm0000gn/T/RackMultipart20191029-95822-1r42ez4.jpeg>, @original_filename="photo-1502224562085-639556652f33.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"blog_post[picture]\"; filename=\"photo-1502224562085-639556652f33.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Blog post"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:29:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[36mBlogPost Create (45.3ms)[0m  [1m[32mINSERT INTO "blog_posts" ("title", "date", "content", "picture", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "5k Running Plan"], ["date", "10/28/2019"], ["content", "I like 5ks"], ["picture", "photo-1502224562085-639556652f33.jpeg"], ["created_at", "2019-10-30 00:50:54.699503"], ["updated_at", "2019-10-30 00:50:54.699503"], ["user_id", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/blog_posts/6
+Completed 302 Found in 108ms (ActiveRecord: 47.4ms | Allocations: 8372)
+
+
+Started GET "/blog_posts/6" for ::1 at 2019-10-29 20:50:54 -0400
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mBlogPost Load (0.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:70:in `set_blog_post'
+  Rendering blog_posts/show.html.erb within layouts/application
+  Rendered blog_posts/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 440)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 44ms (Views: 35.3ms | ActiveRecord: 1.2ms | Allocations: 9871)
+
+
+Started GET "/pages/about" for ::1 at 2019-10-29 20:51:01 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.7ms | Allocations: 85)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 46ms (Views: 44.0ms | ActiveRecord: 0.4ms | Allocations: 9373)
+
+
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:51:02 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:21
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 11.4ms | Allocations: 1614)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 1.4ms | Allocations: 10209)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2019-10-29 20:51:09 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"w3a99zBaKqpMLXyphGZkNEEj/elVGndQuR459cVMX7B2fuqluqbUXufOHwKrj85jSCziLPMmYsJ8ZIxd7u/Knw=="}
+  [1m[36mUser Load (10.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms (ActiveRecord: 10.0ms | Allocations: 2558)
+
+
+Started GET "/" for ::1 at 2019-10-29 20:51:10 -0400
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:51:10 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:21
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1606)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 1.2ms | Allocations: 9392)
+
+
+Started GET "/users/sign_in" for ::1 at 2019-10-29 20:51:13 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 132)
+  Rendered /Users/nb/.rvm/gems/ruby-2.6.3/gems/devise-4.7.1/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1043)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 9046)
+
+
+Started POST "/users/sign_in" for ::1 at 2019-10-29 20:51:22 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"tPT4ptFcb10dWDu2Wkq/FTX8++9aTik2sohcOqFQ8DTMWPUa9JN6utT4DUyTwOHpIJb4d6Fx99WEHn9SNCWB0g==", "user"=>{"email"=>"matt1@matt.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "matt1@matt.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 163ms (ActiveRecord: 2.0ms | Allocations: 2750)
+
+
+Started GET "/" for ::1 at 2019-10-29 20:51:22 -0400
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:51:22 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:21
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1604)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 1.3ms | Allocations: 10203)
+
+
+Started GET "/blog_posts/new" for ::1 at 2019-10-29 20:51:26 -0400
+Processing by BlogPostsController#new as HTML
+  Rendering blog_posts/new.html.erb within layouts/application
+  Rendered blog_posts/_form.html.erb (Duration: 4.1ms | Allocations: 1119)
+  Rendered blog_posts/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1204)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.3ms | Allocations: 9811)
+
+
+Started POST "/blog_posts" for ::1 at 2019-10-29 20:51:53 -0400
+Processing by BlogPostsController#create as HTML
+  Parameters: {"authenticity_token"=>"5Lc50GNJkpcDqV9GoxYnBs6EA0I6Fy3GsoTvrCGpPOBtXGdUPosXvE+c+mS6v4Mc7DDYpNeMP3iWLBkjQEV+2Q==", "blog_post"=>{"title"=>"Half Marathon", "date"=>"10/13/2019", "content"=>"New PR! 1:55:39", "picture"=>#<ActionDispatch::Http::UploadedFile:0x00007fc349e83ed8 @tempfile=#<Tempfile:/var/folders/2z/6wjqgvks5zjcgpgsw7ws2xhm0000gn/T/RackMultipart20191029-95822-19432o1.jpeg>, @original_filename="image.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"blog_post[picture]\"; filename=\"image.jpeg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Blog post"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:29:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[36mBlogPost Create (0.9ms)[0m  [1m[32mINSERT INTO "blog_posts" ("title", "date", "content", "picture", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Half Marathon"], ["date", "10/13/2019"], ["content", "New PR! 1:55:39"], ["picture", "image.jpeg"], ["created_at", "2019-10-30 00:51:53.730015"], ["updated_at", "2019-10-30 00:51:53.730015"], ["user_id", 4]]
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/blog_posts_controller.rb:32:in `block in create'
+Redirected to http://localhost:3000/blog_posts/7
+Completed 302 Found in 74ms (ActiveRecord: 47.9ms | Allocations: 5695)
+
+
+Started GET "/blog_posts/7" for ::1 at 2019-10-29 20:51:53 -0400
+Processing by BlogPostsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBlogPost Load (0.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts" WHERE "blog_posts"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/blog_posts_controller.rb:70:in `set_blog_post'
+  Rendering blog_posts/show.html.erb within layouts/application
+  Rendered blog_posts/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 187)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.8ms | Allocations: 9346)
+
+
+Started GET "/blog_posts" for ::1 at 2019-10-29 20:51:55 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (6.5ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:18
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:21
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 25.0ms | Allocations: 2551)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+Completed 200 OK in 51ms (Views: 37.0ms | ActiveRecord: 12.3ms | Allocations: 11140)
+
+
