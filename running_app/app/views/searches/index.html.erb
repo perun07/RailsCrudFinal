@@ -1,50 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Search for an Upcoming Race</h1>
+<h1>Upcoming Race Cambridge Races Below</h1>
 
-<% form_tag '/index' do %>
-<% label_tag :near %>
-<% text_field_tag :near %>
-<% submit_tag "Search" %>
-<% end %>
+<%= form_tag '/searches' do %>
+ <%= label_tag 'Search for your City' %>
+ <%= text_field_tag :city %>
+ <%= submit_tag "Search!" %>
+<% end %>
+
 
 <div>
  <% if @results %>
- <ul>
- <% @results.each do |results| %>
- <li>
- <%= results["salesEndDate"] %><br>
- </li>
+ <% @results.each do |results| %> <br>
+ <%= image_tag results ["assetImages"][0].fetch('imageUrlAdr', {}) %><br>
+<%= content_tag results ["assetDescriptions"][0].fetch('description') %>
  <% end %>
- </ul>
  <% end %>
 </div>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Racename</th>
-      <th>Date</th>
-      <th>Type</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @searches.each do |search| %>
-      <tr>
-        <td><%= search.raceName %></td>
-        <td><%= search.Date %></td>
-        <td><%= search.Type %></td>
-        <td><%= link_to 'Show', search %></td>
-        <td><%= link_to 'Edit', edit_search_path(search) %></td>
-        <td><%= link_to 'Destroy', search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Search', new_search_path %>

@@ -16,5 +16,24 @@
 
 
 footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
+table, td, th { vertical-align: middle; border: 2pt black; }
 th { border-bottom: 2px solid silver; }
+
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+  }
+  
+  @media all and (max-width: 800px) {
+    .navigation {
+      justify-content: space-around;
+    }
+  }
+  
+  @media all and (max-width: 500px) {
+    .navigation {
+      flex-direction: column;
+    }
+  }

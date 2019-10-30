@@ -1,20 +1,23 @@
 class SearchesController < ApplicationController
-  before_action :set_search, only: [:show, :edit, :update, :destroy]
+  # before_action :set_search, only: [:show, :edit, :update, :destroy]
 
   # GET /searches
   # GET /searches.json
   def index
-    @searches = Search.all
+    # @searches = Search.all
     @resp = Faraday.get 'http://api.amp.active.com/v2/search/' do |req|
       req.params['api_key']='h9tfswkrjjxan2y9z93hqs7f'
-      req.params['query']='Running'
+      req.params['query']='Distance running'
       req.params['per_page']="3"
-      req.params['near']='Boston'
+      req.params['city']='Cambridge'||params[:city]
+      req.params['state']='MA'
       req.params['sort']='distance'
     end
-  print @resp.body
   parse_response = JSON.parse(@resp.body)
   @results = parse_response["results"]
+  # @hash = Hash.new {|h,k| h[k] = Hash.new(&h.default_proc)}
+  # @hash_results = @hash[@results]
+  # puts @hash_results
   end
 
   # GET /searches/1
@@ -79,6 +82,6 @@ class SearchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def search_params
-      params.require(:search).permit(:raceName, :Date, :Type)
+      params.require(:search).permit(:city, :Date, :Type)
     end
 end

@@ -16,16 +16,18 @@
 
   <tbody>
     <% @blog_posts.each do |blog_post| %>
+    <div class="flex-container">
       <tr>
         <td><%= blog_post.title %></td>
         <td><%= blog_post.user.email %></td>
         <td><%= blog_post.date %></td>
         <td><%= blog_post.content %></td>
-        <%= image_tag blog_post.picture_url, width: '50%' if blog_post.picture.present? %>
+        <td><%= image_tag blog_post.picture_url, width: '50%' if blog_post.picture.present? %></td>
         <td><%= link_to 'Running Post', blog_post %></td>
         <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
         <td><%= link_to 'Delete', blog_post, method: :delete, data: { confirm: 'Yo, Wait, Hold IT' } %></td>
       </tr>
+      </div>
     <% end %>
   </tbody>
 </table>
