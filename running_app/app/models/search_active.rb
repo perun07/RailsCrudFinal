@@ -1,2 +1,0 @@
-class SearchActive < ApplicationRecord
-end
