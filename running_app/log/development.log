@@ -7116,3 +7116,286 @@ Processing by BlogPostsController#index as HTML
 Completed 200 OK in 51ms (Views: 37.0ms | ActiveRecord: 12.3ms | Allocations: 11140)
 
 
+  [1m[35m (41.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddSessionsTable (20191030042235)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (62.0ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_sessions_on_session_id" ON "sessions"  ("session_id")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_sessions_on_updated_at" ON "sessions"  ("updated_at")[0m
+  [1m[36mprimary::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191030042235"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateUsers (20191030043130)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" character varying(50) DEFAULT '' NOT NULL[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" character varying(500) DEFAULT '' NOT NULL[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191030043130"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSessions (20191030043245)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSessions (20191030043245)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.7ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateUsers (20191030043130)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.0ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "uid"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "provider"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20191030043130"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/blog_posts" for ::1 at 2019-10-30 00:36:31 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.0) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.0) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2019-10-30 00:36:34 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateUsers (20191030043130)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" character varying(50) DEFAULT '' NOT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" character varying(500) DEFAULT '' NOT NULL[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20191030043130"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSessions (20191030043245)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  
+StandardError (An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateTable: ERROR:  relation "sessions" already exists
+):
+  
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:90:in `async_exec'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:90:in `block (2 levels) in execute'
+activesupport (6.0.0) lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+activesupport (6.0.0) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (6.0.0) lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:89:in `block in execute'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:707:in `block (2 levels) in log'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:706:in `block in log'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:697:in `log'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:88:in `execute'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/schema_statements.rb:315:in `create_table'
+activerecord (6.0.0) lib/active_record/migration.rb:890:in `block in method_missing'
+activerecord (6.0.0) lib/active_record/migration.rb:858:in `block in say_with_time'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/benchmark.rb:293:in `measure'
+activerecord (6.0.0) lib/active_record/migration.rb:858:in `say_with_time'
+activerecord (6.0.0) lib/active_record/migration.rb:879:in `method_missing'
+db/migrate/20191030043245_create_sessions.rb:3:in `change'
+activerecord (6.0.0) lib/active_record/migration.rb:828:in `exec_migration'
+activerecord (6.0.0) lib/active_record/migration.rb:812:in `block (2 levels) in migrate'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/benchmark.rb:293:in `measure'
+activerecord (6.0.0) lib/active_record/migration.rb:811:in `block in migrate'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:465:in `with_connection'
+activerecord (6.0.0) lib/active_record/migration.rb:810:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1001:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1311:in `block in execute_migration_in_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1362:in `block in ddl_transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:277:in `block in transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:280:in `block in within_new_transaction'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:278:in `within_new_transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:277:in `transaction'
+activerecord (6.0.0) lib/active_record/transactions.rb:212:in `transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1362:in `ddl_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1310:in `execute_migration_in_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1282:in `block in migrate_without_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1281:in `each'
+activerecord (6.0.0) lib/active_record/migration.rb:1281:in `migrate_without_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1229:in `block in migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1382:in `with_advisory_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1229:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1061:in `up'
+activerecord (6.0.0) lib/active_record/migration.rb:1036:in `migrate'
+activerecord (6.0.0) lib/active_record/tasks/database_tasks.rb:238:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:135:in `block in <class:PendingMigrationError>'
+activesupport (6.0.0) lib/active_support/actionable_error.rb:28:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:19:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2019-10-30 00:39:19 -0400
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6057511945918631625)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSessions (20191030043245)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "sessions" ("id" bigserial primary key, "session_id" character varying NOT NULL, "data" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6057511945918631625)[0m
+  
+StandardError (An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateTable: ERROR:  relation "sessions" already exists
+):
+  
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:90:in `async_exec'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:90:in `block (2 levels) in execute'
+activesupport (6.0.0) lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+activesupport (6.0.0) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (6.0.0) lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:89:in `block in execute'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:707:in `block (2 levels) in log'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:706:in `block in log'
+activesupport (6.0.0) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract_adapter.rb:697:in `log'
+activerecord (6.0.0) lib/active_record/connection_adapters/postgresql/database_statements.rb:88:in `execute'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/schema_statements.rb:315:in `create_table'
+activerecord (6.0.0) lib/active_record/migration.rb:890:in `block in method_missing'
+activerecord (6.0.0) lib/active_record/migration.rb:858:in `block in say_with_time'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/benchmark.rb:293:in `measure'
+activerecord (6.0.0) lib/active_record/migration.rb:858:in `say_with_time'
+activerecord (6.0.0) lib/active_record/migration.rb:879:in `method_missing'
+db/migrate/20191030043245_create_sessions.rb:3:in `change'
+activerecord (6.0.0) lib/active_record/migration.rb:828:in `exec_migration'
+activerecord (6.0.0) lib/active_record/migration.rb:812:in `block (2 levels) in migrate'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/benchmark.rb:293:in `measure'
+activerecord (6.0.0) lib/active_record/migration.rb:811:in `block in migrate'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:465:in `with_connection'
+activerecord (6.0.0) lib/active_record/migration.rb:810:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1001:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1311:in `block in execute_migration_in_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1362:in `block in ddl_transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:277:in `block in transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:280:in `block in within_new_transaction'
+/Users/nb/.rvm/rubies/ruby-2.6.3/lib/ruby/2.6.0/monitor.rb:230:in `mon_synchronize'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/transaction.rb:278:in `within_new_transaction'
+activerecord (6.0.0) lib/active_record/connection_adapters/abstract/database_statements.rb:277:in `transaction'
+activerecord (6.0.0) lib/active_record/transactions.rb:212:in `transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1362:in `ddl_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1310:in `execute_migration_in_transaction'
+activerecord (6.0.0) lib/active_record/migration.rb:1282:in `block in migrate_without_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1281:in `each'
+activerecord (6.0.0) lib/active_record/migration.rb:1281:in `migrate_without_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1229:in `block in migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1382:in `with_advisory_lock'
+activerecord (6.0.0) lib/active_record/migration.rb:1229:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:1061:in `up'
+activerecord (6.0.0) lib/active_record/migration.rb:1036:in `migrate'
+activerecord (6.0.0) lib/active_record/tasks/database_tasks.rb:238:in `migrate'
+activerecord (6.0.0) lib/active_record/migration.rb:135:in `block in <class:PendingMigrationError>'
+activesupport (6.0.0) lib/active_support/actionable_error.rb:28:in `dispatch'
+actionpack (6.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:19:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.0.3) lib/rack/cors.rb:95:in `call'
+webpacker (4.0.7) lib/webpacker/dev_server_proxy.rb:29:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.0) lib/rails/engine.rb:526:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
