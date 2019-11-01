@@ -2,14 +2,7 @@
 
 <h1>Upcoming Race Cambridge Races Below</h1>
 
-<%= form_tag '/searches' do %>
- <%= label_tag 'Search for your City' %>
- <%= text_field_tag :city %>
- <%= submit_tag "Search!" %>
-<% end %>
-
-
-<div>
+<div class='box'>
  <% if @results %>
  <% @results.each do |results| %> <br>
  <%= image_tag results ["assetImages"][0].fetch('imageUrlAdr', {}) %><br>

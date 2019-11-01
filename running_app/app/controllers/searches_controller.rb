@@ -11,7 +11,8 @@ class SearchesController < ApplicationController
       req.params['per_page']="3"
       req.params['city']='Cambridge'||params[:city]
       req.params['state']='MA'
-      req.params['sort']='distance'
+      req.params['sort']='date_desc'
+      req.params['radius']='15'
     end
   parse_response = JSON.parse(@resp.body)
   @results = parse_response["results"]
