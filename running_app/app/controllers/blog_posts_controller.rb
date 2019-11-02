@@ -5,6 +5,8 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts.json
   def index
     @blog_posts = BlogPost.all
+    # @blog_posts = current_user.blog_post.order("RANDOM()").first(1)
+ 
   end
 
   # GET /blog_posts/1
@@ -24,7 +26,7 @@ class BlogPostsController < ApplicationController
   # POST /blog_posts
   # POST /blog_posts.json
   def create
-    @blog_post = BlogPost.new(blog_post_params)
+    @blog_post = BlogPost.new(blog_post_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @blog_post.save
@@ -61,6 +63,7 @@ class BlogPostsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blog_post
@@ -71,4 +74,5 @@ class BlogPostsController < ApplicationController
     def blog_post_params
       params.require(:blog_post).permit(:title, :author, :date, :content, :picture)
     end
+    
 end

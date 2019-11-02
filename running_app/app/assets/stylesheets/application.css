@@ -13,8 +13,43 @@
  *= require_tree .
  *= require_self
  */
+.background {
+background:silver;
+border: black;
+text-decoration-color: white;
+/* background: linear-gradient(90deg, rgba(255,151,0,1) 0%, rgba(255,255,255,1) 50%, rgba(19,0,255,1) 100%); */
+}
 
+.container {
+    text-decoration-color: aliceblue;
+}
+
+.btn{
+    margin:5px;
+    }
 
 footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 2px solid silver; }
+table, td, th { vertical-align: top; border: 2pt black; text-decoration-color: white; }
+table {border: 2pt black;text-decoration-color: white;}
+th { border-bottom: 2px solid silver; text-decoration-color: white;}
+
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+  }
+  
+  @media all and (max-width: 800px) {
+    .navigation {
+      justify-content: space-around;
+    }
+  }
+  
+  @media all and (max-width: 500px) {
+    .navigation {
+      flex-direction: column;
+    }
+  }
+
+  

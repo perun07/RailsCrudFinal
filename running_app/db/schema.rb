@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_070341) do
+ActiveRecord::Schema.define(version: 2019_10_30_004436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(version: 2019_10_27_070341) do
     t.string "date"
     t.string "content"
     t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_blog_posts_on_user_id"
+  end
+
+  create_table "search_actives", force: :cascade do |t|
+    t.string "raceType"
+    t.string "location"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "raceName"
+    t.string "Date"
+    t.string "Type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,4 +55,5 @@ ActiveRecord::Schema.define(version: 2019_10_27_070341) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "blog_posts", "users"
 end
