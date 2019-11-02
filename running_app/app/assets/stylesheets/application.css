@@ -14,7 +14,7 @@
  *= require_self
  */
 .background {
-background: rgb(43, 109, 250);
+background:silver;
 border: black;
 text-decoration-color: white;
 /* background: linear-gradient(90deg, rgba(255,151,0,1) 0%, rgba(255,255,255,1) 50%, rgba(19,0,255,1) 100%); */

@@ -21,8 +21,10 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <%# <strong>Picture:</strong> %>
+  <div class='center'>
   <%= image_tag(@blog_post.picture_url, width: 400) if @blog_post.picture.present? %>
+  </div>
 </p>
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
