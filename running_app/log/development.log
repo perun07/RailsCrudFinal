@@ -17592,3 +17592,178 @@ Processing by BlogPostsController#index as HTML
 Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 2.8ms | Allocations: 12106)
 
 
+Started GET "/blog_posts" for ::1 at 2019-11-02 01:12:05 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.9ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:19
+  [1m[36mUser Load (27.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 178.2ms | Allocations: 18518)
+[Webpacker] Compiling…
+Started GET "/searches" for ::1 at 2019-11-02 01:12:09 -0400
+Processing by SearchesController#index as HTML
+  Rendering searches/index.html.erb within layouts/application
+  Rendered searches/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 312)
+[Webpacker] Compiling…
+Started GET "/pages/about" for ::1 at 2019-11-02 01:12:11 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.8ms | Allocations: 174)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 7728ms (Views: 7625.9ms | ActiveRecord: 81.7ms | Allocations: 1408791)
+
+
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 7382ms (Views: 6527.1ms | ActiveRecord: 2.2ms | Allocations: 32509)
+
+
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 5995ms (Views: 5972.0ms | ActiveRecord: 21.7ms | Allocations: 20050)
+
+
+Started GET "/blog_posts" for ::1 at 2019-11-02 01:12:18 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (4.7ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:19
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 31.1ms | Allocations: 3510)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 53ms (Views: 44.4ms | ActiveRecord: 6.5ms | Allocations: 12088)
+
+
+Started GET "/searches" for ::1 at 2019-11-02 01:12:19 -0400
+Processing by SearchesController#index as HTML
+  Rendering searches/index.html.erb within layouts/application
+  Rendered searches/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 82)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 567ms (Views: 13.3ms | ActiveRecord: 0.5ms | Allocations: 11165)
+
+
+Started GET "/pages/about" for ::1 at 2019-11-02 01:12:22 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.3ms | Allocations: 17)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 2.0ms | Allocations: 8567)
+
+
+Started GET "/blog_posts" for ::1 at 2019-11-02 02:07:52 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (0.9ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:19
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 151.3ms | Allocations: 18517)
+Started GET "/searches" for ::1 at 2019-11-02 02:07:53 -0400
+Processing by SearchesController#index as HTML
+  Rendering searches/index.html.erb within layouts/application
+  Rendered searches/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 526)
+Started GET "/pages/about" for ::1 at 2019-11-02 02:07:54 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 1.1ms | Allocations: 395)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 4626ms (Views: 4552.2ms | ActiveRecord: 53.4ms | Allocations: 2245325)
+
+
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 5952ms (Views: 5278.8ms | ActiveRecord: 1.8ms | Allocations: 2881286)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 5055ms (Views: 5051.9ms | ActiveRecord: 1.1ms | Allocations: 2316407)
+
+
+Started GET "/pages/about" for ::1 at 2019-11-02 07:18:34 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 2.0ms | Allocations: 298)
+Started GET "/blog_posts" for ::1 at 2019-11-02 07:18:36 -0400
+Processing by BlogPostsController#index as HTML
+  Rendering blog_posts/index.html.erb within layouts/application
+  [1m[36mBlogPost Load (82.8ms)[0m  [1m[34mSELECT "blog_posts".* FROM "blog_posts"[0m
+  ↳ app/views/blog_posts/index.html.erb:19
+  [1m[36mUser Load (41.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/blog_posts/index.html.erb:23
+  Rendered blog_posts/index.html.erb within layouts/application (Duration: 437.8ms | Allocations: 282058)
+[Webpacker] Compiling…
+Started GET "/searches" for ::1 at 2019-11-02 07:18:38 -0400
+Processing by SearchesController#index as HTML
+[Webpacker] Compiling…
+  Rendering searches/index.html.erb within layouts/application
+  Rendered searches/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 312)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+[Webpacker] warning package.json: No license field
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 9666ms (Views: 9658.3ms | ActiveRecord: 1.2ms | Allocations: 2474394)
+
+
+Started GET "/pages/about" for ::1 at 2019-11-02 07:18:44 -0400
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"about"}
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (Duration: 0.2ms | Allocations: 18)
+  [1m[36mUser Load (58.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 142ms (Views: 81.6ms | ActiveRecord: 58.4ms | Allocations: 8622)
+
+
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+[Webpacker] warning package.json: No license field
+
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 7818ms (Views: 6827.6ms | ActiveRecord: 1.6ms | Allocations: 431713)
+
+
+[Webpacker] Compiled all packs in /Users/nb/Documents/capstoneFinal/RailsCrudFinal/running_app/public/packs
+[Webpacker] warning package.json: No license field
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:29
+Completed 200 OK in 9717ms (Views: 9358.4ms | ActiveRecord: 347.3ms | Allocations: 1427329)
+
+
